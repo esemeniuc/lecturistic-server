@@ -4,10 +4,10 @@ one:
   user: one
   course: one
   date: 2018-01-13
-  filename: MyString
+  file_name: MyString
 
 two:
   user: two
   course: two
   date: 2018-01-13
-  filename: MyString
+  file_name: MyString

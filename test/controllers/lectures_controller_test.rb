@@ -17,7 +17,7 @@ class LecturesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lecture" do
     assert_difference('Lecture.count') do
-      post lectures_url, params: { lecture: { course_id: @lecture.course_id, date: @lecture.date, filename: @lecture.filename, user_id: @lecture.user_id } }
+      post lectures_url, params: { lecture: { course_id: @lecture.course_id, date: @lecture.date, file_name: @lecture.file_name, user_id: @lecture.user_id } }
     end
 
     assert_redirected_to lecture_url(Lecture.last)
@@ -34,7 +34,7 @@ class LecturesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lecture" do
-    patch lecture_url(@lecture), params: { lecture: { course_id: @lecture.course_id, date: @lecture.date, filename: @lecture.filename, user_id: @lecture.user_id } }
+    patch lecture_url(@lecture), params: { lecture: { course_id: @lecture.course_id, date: @lecture.date, file_name: @lecture.file_name, user_id: @lecture.user_id } }
     assert_redirected_to lecture_url(@lecture)
   end
 

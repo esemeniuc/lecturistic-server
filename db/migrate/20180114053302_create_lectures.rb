@@ -4,7 +4,7 @@ class CreateLectures < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.references :course, foreign_key: true
       t.date :date
-      t.string :filename
+      t.string :file_name
 
       t.timestamps
     end
