@@ -58,3 +58,4 @@ gem 'carrierwave'
 gem 'icalendar'
 gem 'pry-byebug'
 gem 'pry'
+gem 'pry-rails', :group => :development
