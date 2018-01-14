@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
+  root 'homepage#index'
+
+  resources :registrations
   resources :events
   resources :lectures
   resources :courses
-  root 'homepage#index'
-  get 'registration/register', to: 'registration#show'
-
-
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

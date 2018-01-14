@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @registration.user_name %>
+</p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @registration.full_name %>
+</p>
+
+<p>
+  <strong>File upload:</strong>
+  <%= @registration.file_upload %>
+</p>
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>
