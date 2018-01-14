@@ -21,6 +21,29 @@ class LecturesController < ApplicationController
   def edit
   end
 
+  # POST /lectures/user/:user_id
+  # POST /lectures/user/:user_id.json
+  def create_upload
+    binding.pry
+    @lecture = Lecture.new(
+        user_id: params[:user_id],
+        course_id: params[:course_id],
+        file_name: params[:file_name],
+        date: Time.at(params[:date].to_i)
+        )
+    # binding.pry
+
+    respond_to do |format|
+      if @lecture.save
+        format.html { redirect_to @lecture, notice: 'Lecture was successfully created.' }
+        format.json { render :show, status: :created, location: @lecture }
+      else
+        format.html { render :new }
+        format.json { render json: @lecture.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # POST /lectures
   # POST /lectures.json
   def create
