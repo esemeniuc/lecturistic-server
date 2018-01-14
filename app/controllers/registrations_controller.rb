@@ -1,3 +1,5 @@
+require('icalendar')
+require('pry')
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
 
@@ -26,6 +28,39 @@ class RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(registration_params)
 
+    cal_file = params[:registration][:file_upload].open
+
+    # Parser returns an array of calendars because a single file can have multiple calendars.
+    cals = Icalendar::Calendar.parse(cal_file)
+    cal = cals.first
+
+    unique_course = cal.events.first.summary
+    current_course = cal.events.first.summary
+
+    # all = [] # for debugging
+    user = User.find_by_user_name(params[:registration][:user_name])
+    if user == nil # if user not in database
+      user = User.create(full_name: params[:registration][:full_name], user_name: params[:registration][:user_name])
+    end
+    
+    (0..cal.events.length-1).step(1).each do |index|
+      # todo determine user_id
+      # binding.pry
+      if current_course != unique_course
+        # create database entry
+        course = Course.find_by_name(cal.events[index].summary)
+        if course == nil
+          new_course_id = Course.create(name: cal.events[index].summary, location: cal.events[index].location)
+        else
+          new_course_id = course.id
+        end
+      end
+      Event.create(user_id: user.id, course_id: new_course_id, start: cal.events[index].dtstart, end: cal.events[index].dtend)
+      # set new course
+      unique_course = cal.events[index].summary
+      current_course = cal.events[index].summary
+    end
+
     respond_to do |format|
       if @registration.save
         format.html { redirect_to @registration, notice: 'Registration was successfully created.' }
@@ -35,6 +70,7 @@ class RegistrationsController < ApplicationController
         format.json { render json: @registration.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /registrations/1
