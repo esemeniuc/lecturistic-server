@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  charity_name: MyString
+  charity_url: MyString
+  donate_amount: MyString
+  lectures: one
+
+two:
+  full_name: MyString
+  charity_name: MyString
+  charity_url: MyString
+  donate_amount: MyString
+  lectures: two
