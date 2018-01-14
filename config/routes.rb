@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'registration/register'
+
   resources :courses
   resources :lectures
   resources :users
