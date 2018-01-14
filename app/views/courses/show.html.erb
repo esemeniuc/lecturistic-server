@@ -10,5 +10,12 @@
   <%= @course.location %>
 </p>
 
+<p>
+  <strong>Lectures:</strong>
+  <% @course.lectures.first(3).each do |l| %>
+    Lecture file:  <strong><%= l.file_name %></strong> was recorded by the user:  <strong><%= User.find_by(id: @course.lectures.first.user_id).full_name %></strong> and its download link is <strong>https://lecturistic.blob.core.windows.net/audiofiles/<%= User.lectures.first.file_name %>.acc</strong>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
