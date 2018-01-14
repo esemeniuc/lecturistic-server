@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  root 'homepage#index'
+  get 'registration/register', to: 'registration#show'
+
   resources :lectures
-  get 'registration/register'
 
   resources :courses
   resources :users
