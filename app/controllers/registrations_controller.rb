@@ -51,15 +51,19 @@ class RegistrationsController < ApplicationController
         course = Course.find_by_name(cal.events[index].summary)
         if course == nil
           new_course_id = Course.create(name: cal.events[index].summary, location: cal.events[index].location)
+          
         else
           new_course_id = course.id
         end
       end
-      Event.create(user_id: user.id, course_id: new_course_id, start: cal.events[index].dtstart, end: cal.events[index].dtend)
+      # Event.create(user_id: user.id, course_id: new_course_id, start: cal.events[index].dtstart, end: cal.events[index].dtend)
       # set new course
       unique_course = cal.events[index].summary
       current_course = cal.events[index].summary
     end
+
+    Event.create(user_id: user.id, course_id: 1, start: Time.now.to_i+10, end: Time.now.to_i+15)
+    Event.create(user_id: user.id, course_id: 2, start: Time.now.to_i+20, end: Time.now.to_i+30)
 
     respond_to do |format|
       if @registration.save
