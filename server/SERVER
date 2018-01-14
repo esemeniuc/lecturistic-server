@@ -1,9 +1,0 @@
-You are in the Lecturistic server!
-
-To start it, go into ./lecturistic and run
-
-#rails s
-
-then go to
-
-#localhost:3000
