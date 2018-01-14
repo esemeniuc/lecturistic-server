@@ -6,6 +6,7 @@ one:
   charity_url: MyString
   donate_amount: MyString
   lectures: one
+  events: one
 
 two:
   full_name: MyString
@@ -13,3 +14,4 @@ two:
   charity_url: MyString
   donate_amount: MyString
   lectures: two
+  events: two

@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :charity_url
       t.string :donate_amount
       t.references :lectures, foreign_key: true
+      t.references :events, foreign_key: true
 
       t.timestamps
     end
