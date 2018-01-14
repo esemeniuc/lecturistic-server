@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :user_name %>
+    <%= form.text_field :user_name, id: :user_user_name %>
+  </div>
+
+  <div class="field">
     <%= form.label :charity_name %>
     <%= form.text_field :charity_name, id: :user_charity_name %>
   </div>
@@ -29,16 +34,6 @@
   <div class="field">
     <%= form.label :donate_amount %>
     <%= form.text_field :donate_amount, id: :user_donate_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lectures_id %>
-    <%= form.text_field :lectures_id, id: :user_lectures_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :events_id %>
-    <%= form.text_field :events_id, id: :user_events_id %>
   </div>
 
   <div class="actions">

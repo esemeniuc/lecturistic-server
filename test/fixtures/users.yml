@@ -2,16 +2,14 @@
 
 one:
   full_name: MyString
+  user_name: MyString
   charity_name: MyString
   charity_url: MyString
   donate_amount: MyString
-  lectures: one
-  events: one
 
 two:
   full_name: MyString
+  user_name: MyString
   charity_name: MyString
   charity_url: MyString
   donate_amount: MyString
-  lectures: two
-  events: two

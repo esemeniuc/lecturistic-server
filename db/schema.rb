@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180114162240) do
+ActiveRecord::Schema.define(version: 20180114174548) do
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.integer "lectures_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lectures_id"], name: "index_courses_on_lectures_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -53,15 +51,12 @@ ActiveRecord::Schema.define(version: 20180114162240) do
 
   create_table "users", force: :cascade do |t|
     t.string "full_name"
+    t.string "user_name"
     t.string "charity_name"
     t.string "charity_url"
     t.string "donate_amount"
-    t.integer "lectures_id"
-    t.integer "events_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["events_id"], name: "index_users_on_events_id"
-    t.index ["lectures_id"], name: "index_users_on_lectures_id"
   end
 
 end

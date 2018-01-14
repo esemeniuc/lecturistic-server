@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>User name:</strong>
+  <%= @user.user_name %>
+</p>
+
+<p>
   <strong>Charity name:</strong>
   <%= @user.charity_name %>
 </p>
@@ -18,16 +23,6 @@
 <p>
   <strong>Donate amount:</strong>
   <%= @user.donate_amount %>
-</p>
-
-<p>
-  <strong>Lectures:</strong>
-  <%= @user.lectures %>
-</p>
-
-<p>
-  <strong>Events:</strong>
-  <%= @user.events %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

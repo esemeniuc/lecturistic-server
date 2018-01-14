@@ -3,9 +3,7 @@
 one:
   name: MyString
   location: MyString
-  lectures: one
 
 two:
   name: MyString
   location: MyString
-  lectures: two
