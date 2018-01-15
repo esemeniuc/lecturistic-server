@@ -58,3 +58,4 @@ gem 'icalendar'
 gem 'pry-byebug'
 gem 'pry'
 gem 'pry-rails', :group => :development
+gem 'rack-cors', :require => 'rack/cors'
