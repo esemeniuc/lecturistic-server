@@ -1,0 +1,45 @@
+#lecture belongs to user
+rails g scaffold User full_name:string user_name:string charity_name:string charity_url:string donate_amount:string
+
+rails g scaffold Course name:string location:string
+
+#lecture belongs to class too
+rails g scaffold Lecture user:references course:references date:date file_name:string
+
+rails g scaffold Event user:references course:references start:datetime end:datetime
+
+rails g scaffold Registration user_name:string full_name:string file_upload:binary
+
+rails g controller homepage index 
+
+
+class User < ApplicationRecord
+  has_many :lectures
+  has_many :events
+end
+
+class Course < ApplicationRecord
+  has_many :lectures #has events too, but we dont need that for now
+end
+
+class Lecture < ApplicationRecord
+  belongs_to :user
+  belongs_to :course
+end
+
+class Event < ApplicationRecord
+  belongs_to :user
+  belongs_to :course
+end
+
+
+params[:register][:fileupload].read
+
+
+User.create(user_name:"cwaffles", full_name:"eric")
+Course.create(name:"cpsc 490", location:"dmp 110")
+Event.create(user_id:1, course_id: 1, start: 1111, end:2222)
+Event.create(user_id:1, course_id: 1, start: 3333, end:4444)
+
+Lecture.create(user_id:1, course_id: 1, date: 11111, file_name: "test")
+
